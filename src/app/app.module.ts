@@ -27,6 +27,27 @@ import { ProfileUserComponent } from './pages/profile-user/profile-user.componen
 import { UsersComponent } from './pages/users/users.component';
 import { ScrollToButtomDirective } from './servies/scroll-to-buttom.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
+//pipe
+import { SafePipe } from "./core/safe.pipe";
+
+
+// Module
+import { AdsenseModule } from 'ng2-adsense';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
+import { AlertService } from './servies/alert.service';
+import { LoadingService } from './servies/loading.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './core/auth.guard';
+import { CountriesService } from './services/countries.service';
+import { CvBoxService } from './services/cv-box.service';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { Ng5SliderModule } from 'ng5-slider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +57,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     VerifyEmailComponent,
+    LoadingSpinnerComponent,
     DepartmentsComponent,
     DisplayProfileUserComponent,
     FilterCvComponent,
@@ -43,7 +65,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PersolalInfoComponent,
     ProfileUserComponent,
     UsersComponent,
-    ScrollToButtomDirective
+    ScrollToButtomDirective,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -55,8 +78,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireStorageModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
+    AdsenseModule.forRoot(),
+    ImageCropperModule,
+    MatDialogModule,
+    Ng5SliderModule
+
   ],
-  providers: [],
+
+  providers: [
+    AlertService,
+    LoadingService,
+    AuthService,
+    AuthGuard,
+    CountriesService,
+    CvBoxService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

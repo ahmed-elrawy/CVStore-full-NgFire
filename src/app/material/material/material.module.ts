@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -47,7 +47,85 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTreeModule } from '@angular/material/tree';
 
 const MaterialComponents = [
-  MatButtonModule,
+ 
+];
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    MatBadgeModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatListModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    A11yModule,
+    CdkStepperModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    PortalModule,
+    ScrollingModule,
+    MatDialogModule
+  ],
+  exports: [
+    MatButtonModule,
   MatIconModule,
   MatButtonToggleModule,
   MatBadgeModule,
@@ -72,7 +150,6 @@ const MaterialComponents = [
   MatNativeDateModule,
   MatTooltipModule,
   MatSnackBarModule,
-  MatDialogModule,
   MatTableModule,
   A11yModule,
   CdkStepperModule,
@@ -89,7 +166,6 @@ const MaterialComponents = [
   MatChipsModule,
   MatStepperModule,
   MatDatepickerModule,
-  MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
   MatGridListModule,
@@ -116,17 +192,9 @@ const MaterialComponents = [
   MatTreeModule,
   PortalModule,
   ScrollingModule,
-];
-
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    MaterialComponents
+  MatDialogModule
   ],
-  exports: [
-    MaterialComponents
-  ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+
 })
 export class MaterialModule { }

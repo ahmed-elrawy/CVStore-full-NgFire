@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { User } from '../classes/user';
 import { BehaviorSubject } from 'rxjs';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+//import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormArray } from '@angular/forms';
 
@@ -36,7 +36,7 @@ export class CvBoxService {
 
   constructor(
     private db: AngularFirestore,
-    public dialog: MatDialog,
+   // public dialog: MatDialog,
     private router: Router,
 
 
@@ -60,13 +60,22 @@ export class CvBoxService {
 
 
 
-  getDepartments(id: number) {
+  getDepartments(event: Event | number) {
+    let id: any
+    if (  event instanceof  Event ) {
+      id = (<HTMLInputElement>event.target).value
+      console.log('Event')
+
+    }else { id = id ;       console.log(id)
+  }
+
     this.departmentCollection = this.db.collection('departments', ref => {
       // Compose a query using multiple .where() methods
       return ref
         .where('category_id', '==', id)
     });
     this.departments = this.departmentCollection.valueChanges();
+    this.departments.subscribe(res => console.log(res))
 
   }
 
@@ -118,7 +127,7 @@ export class CvBoxService {
 
       this.cvFilter(category, departments, gender, country, state, marital_status, military_status, minExperience, maxExperience);
 
-      this.dialog.closeAll()
+     // this.dialog.closeAll()
       this.router.navigate(['/users'])
 
     } else {

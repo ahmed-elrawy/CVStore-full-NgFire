@@ -42,15 +42,9 @@ export class AppComponent implements OnInit {
 
 
   ) {
-  let  x=  firebase.default.firestore.Timestamp
-
- const data = {
-  createdAt: firebase.default.firestore.FieldValue.serverTimestamp(),
-};
 
 
-console.log(data.createdAt)
-console.log(x)
+
 }
 
   ngOnInit() {

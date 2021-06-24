@@ -53,6 +53,11 @@ export class AuthService {
     this.setCurrentUserSnapshot()
   }
 
+  
+
+  getUser() {
+    return this.currentUser.pipe(first()).toPromise()
+  }
 
 
 

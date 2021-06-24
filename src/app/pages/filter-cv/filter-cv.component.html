@@ -1,1 +1,72 @@
-<p>filter-cv works!</p>
+<h2 mat-dialog-title>CV Fillter</h2>
+
+<mat-dialog-content class="mat-typography">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <p class="mx-4">
+        Experience:
+        <ng5-slider
+          [(value)]="minExperience"
+          [(highValue)]="maxExperience"
+          [options]="options"
+        >
+        </ng5-slider>
+      </p>
+    </div>
+  </div>
+
+  <form *ngIf="filterForm" [formGroup]="filterForm" novalidate>
+    <!-- start of category-->
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCategory">Category</label>
+        <select
+          class="form-control"
+          (change)="cv.getDepartments($event)"
+          id="inputCategory"
+          placeholder="category (required)"
+          formControlName="category"
+          [ngClass]="{
+            'is-invalid':
+              filterFormControl.category.touched ||
+              (filterFormControl.category.dirty &&
+                filterFormControl.category.valid)
+          }"
+        >
+          <option>--Select category--</option>
+
+          <option *ngFor="let category of cv.categories | async">
+            {{ category.name }}
+          </option>
+        </select>
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.country.errors?.required">
+            Please enter your category.
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- end of category-->
+    <!-- start of department-->
+
+    <div class="form-group col-md-6">
+      <label for="departmentId">Department</label>
+      <select
+        class="form-control"
+        id="departmentId"
+        placeholder="department (required)"
+        formControlName="departments"
+      >
+        <option>--Select department--</option>
+
+        <option *ngFor="let department of cv.departments | async">
+          {{ department.name }}
+        </option>
+      </select>
+
+      <span class="invalid-feedback"> </span>
+    </div>
+  </form>
+</mat-dialog-content>

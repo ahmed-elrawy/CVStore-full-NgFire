@@ -3,7 +3,7 @@ export interface User {
     emailVerified?: boolean;
     name?: string;
     email: string;
-    profile_image?: string;
+    profile_image?: string | undefined;
     user_type?: string;
     eslam?: string;
     phone?: string;
