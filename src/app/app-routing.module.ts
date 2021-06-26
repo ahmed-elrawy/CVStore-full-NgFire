@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileUserComponent, canActivate: [AuthGuard] },
   { path: 'profile/info', component: ProfileUserComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent},
+  { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'display-profile-use/:id', component: DisplayProfileUserComponent },
   { path: 'filter-cv', component: FilterCvComponent },
   { path: 'chats/:id', component: ChatComponent, canActivate: [AuthGuard] }

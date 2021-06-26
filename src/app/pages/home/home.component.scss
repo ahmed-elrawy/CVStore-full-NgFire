@@ -1,0 +1,183 @@
+@import '../../../styles/variabales.scss';
+
+
+
+.findbox {
+  display: inline-block;
+  width: 370px;
+  height: 45px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.findbox span {
+  font-size: x-large;
+  color: slategray;;
+}
+
+
+.card {
+max-width: 300px;
+}
+
+/////////@at-root
+img{
+height:120px;
+width:120px;
+}
+
+// div [class^="col-"]{
+//   padding-left:5px;
+//   padding-right:5px;
+// }
+
+.card{
+transition:0.5s;
+cursor:pointer;
+box-shadow: 0 0 5px;
+}
+.card-title{
+font-size:15px;
+transition:1s;
+cursor:pointer;
+}
+.card-title i{
+font-size:15px;
+transition:1s;
+cursor:pointer;
+color:#ffa710
+}
+.card-title i:hover{
+transform: scale(1.25) rotate(100deg);
+color:#18d4ca;
+
+}
+.card:hover{
+transform: scale(1.05);
+box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+.card-text{
+height:80px;
+}
+
+.card::before, .card::after {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+transform: scale3d(0, 0, 1);
+transition: transform .3s ease-out 0s;
+background: rgba(255, 255, 255, 0.1);
+content: '';
+pointer-events: none;
+}
+.card::before {
+transform-origin: left top;
+}
+.card::after {
+transform-origin: right bottom;
+}
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+transform: scale3d(1, 1, 1);
+}
+
+
+
+//user card
+
+/* FontAwesome for working BootSnippet :> */
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+#team {
+  background: #eee !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #108d6f;
+  border-color: #108d6f;
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-primary {
+  color: #fff;
+  // background-color: #007b5e;
+  // border-color: #007b5e;
+}
+
+section {
+  padding: 45px 0;
+}
+
+// find ccv button 
+
+.button {
+display: inline-block;
+border-radius: 7px;
+background-color: $primary;
+border: none;
+color: #FFFFFF;
+text-align: center;
+font-size: 28px;
+width: 200px;
+height: 40px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+}
+
+.button span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.button span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.button:hover span {
+padding-right: 25px;
+}
+
+.button:hover span:after {
+opacity: 1;
+right: 0;
+}
+
+
+////profile img
+
+
+.profileImg {
+width: 60px;
+height: 60px;
+}
+
+
+@media only screen and (max-width: 450px) {
+.card{
+  padding: 10px;
+  margin: auto;
+  width: 150px;
+  height: 160px;
+  border-radius: 10px;
+}
+.card img{
+  width: 80px;
+  height: 80px;
+}
+.card h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bolder;
+
+}
+}

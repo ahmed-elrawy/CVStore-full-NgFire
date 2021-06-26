@@ -12,12 +12,12 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public loginForm!: FormGroup ;
+  public loginForm!: FormGroup;
   private subscriptions: Subscription[] = [];
-  private returnUrl!: string ;
+  private returnUrl!: string;
 
   constructor(
     private fb: FormBuilder,
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
       this.subscriptions.push(
         this.auth.login(email, password).subscribe(success => {
-          if (success && this.auth.afAuth.currentUser ) {
+          if (success && this.auth.afAuth.currentUser) {
             this.router.navigateByUrl(this.returnUrl);
           } else {
           }

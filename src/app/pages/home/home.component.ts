@@ -14,17 +14,17 @@ export interface DialogData {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  public currentUser?: User ;
+  public currentUser?: User;
   category: boolean = true
   department: boolean = false
   user: boolean = false;
   showSpinner: any
 
-  profilPoto : any 
+  profilPoto: any
 
   idTemp: any
   constructor(
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       this.showSpinner = state
     })
     this.auth.currentUser.subscribe(user => {
-      if(user) {
+      if (user) {
         this.currentUser = user;
         this.profilPoto = user.profile_image || ''
 
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  
+
   onClick(key: string) {
     if (key == "category") {
       this.cv.getCategories()
@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
       this.user = false
     }
 
-    
+
 
   }
 
@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  getUsers(id: number) {
+  getUsers(id: string) {
     this.showSpinner = true
 
     this.department = false

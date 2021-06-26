@@ -1,5 +1,4 @@
 <h2 mat-dialog-title>CV Fillter</h2>
-
 <mat-dialog-content class="mat-typography">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -29,9 +28,9 @@
           formControlName="category"
           [ngClass]="{
             'is-invalid':
-              filterFormControl.category.touched ||
-              (filterFormControl.category.dirty &&
-                !filterFormControl.category.valid)
+              (filterFormControl.category.touched ||
+                filterFormControl.category.dirty) &&
+              !filterFormControl.category.valid
           }"
         >
           <option>--Select category--</option>
@@ -41,7 +40,7 @@
           </option>
         </select>
         <span class="invalid-feedback">
-          <span *ngIf="filterFormControl.country.errors?.required">
+          <span *ngIf="filterFormControl.category.errors?.required">
             Please enter your category.
           </span>
         </span>
@@ -238,7 +237,7 @@
     mat-button
     [mat-dialog-close]="true"
     cdkFocusInitial
-    [disabled]="!filterFormControl.valid"
+    [disabled]="!filterForm?.valid"
     (click)="cv.submit(filterForm, minExperience, maxExperience)"
   >
     search

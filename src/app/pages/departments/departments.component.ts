@@ -7,11 +7,11 @@ import { User } from 'src/app/classes/user';
 @Component({
   selector: 'app-departments',
   templateUrl: './departments.component.html',
-  styleUrls: ['./departments.component.sass']
+  styleUrls: ['./departments.component.scss']
 })
 export class DepartmentsComponent implements OnInit {
 
-  public currentUser?: User |  null;
+  public currentUser?: User | null;
   departmenrId: string = "";
   showSpinner: boolean = true
 

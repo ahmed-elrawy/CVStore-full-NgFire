@@ -20,12 +20,12 @@ export interface DialogData {
 @Component({
   selector: 'app-filter-cv',
   templateUrl: './filter-cv.component.html',
-  styleUrls: ['./filter-cv.component.sass']
+  styleUrls: ['./filter-cv.component.scss']
 })
 export class FilterCvComponent implements OnInit {
 
 
-  filterForm: FormGroup | undefined ;
+  filterForm: FormGroup | undefined;
 
   // minAge: number = 20;
   // maxAge: number = 70;

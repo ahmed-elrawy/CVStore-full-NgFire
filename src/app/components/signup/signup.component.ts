@@ -11,7 +11,7 @@ import { AlertType } from 'src/app/enum/alert-type-enum';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.sass']
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit, OnDestroy {
   public signupForm!: FormGroup;

@@ -11,7 +11,7 @@ import { AlertType } from 'src/app/enum/alert-type-enum';
 import { User } from '../classes/user';
 
 
-import * as firebase from 'firebase/app'; 
+import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 
 @Injectable({
@@ -45,7 +45,7 @@ export class AuthService {
           return this.db.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           localStorage.setItem('user', '{}');
-          JSON.parse(localStorage.getItem('user')|| '{}');
+          JSON.parse(localStorage.getItem('user') || '{}');
           return of(null);
         }
       })
@@ -53,7 +53,7 @@ export class AuthService {
     this.setCurrentUserSnapshot()
   }
 
-  
+
 
   getUser() {
     return this.currentUser.pipe(first()).toPromise()
@@ -65,7 +65,7 @@ export class AuthService {
     this.currentUser.subscribe(user => this.currentUserSnapshot = user)
   }
 
-  
+
 
 
   public logout(): void {
@@ -106,7 +106,7 @@ export class AuthService {
   }
 
   SetUserData(user: any, name?: string, password?: string, phone?: string, departments?: [string], user_type?: string) {
-   
+
     const firestore = firebase.default.firestore
     console.log(firestore.FieldValue.serverTimestamp())
     console.log(user.user.emailVerified)
@@ -148,19 +148,19 @@ export class AuthService {
           this.router.navigate(['verify-email-address']);
 
         }
-       if(user.user){
-        const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${user.user.uid}`);
-        const updatedUser = {
-          user_id: user.user.uid,
-          email: user.user.email!,
-          emailVerified: user.user.emailVerified
+        if (user.user) {
+          const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${user.user.uid}`);
+          const updatedUser = {
+            user_id: user.user.uid,
+            email: user.user.email!,
+            emailVerified: user.user.emailVerified
+          }
+
+          userRef.set(updatedUser, {
+            merge: true
+          });
+
         }
-
-        userRef.set(updatedUser, {
-          merge: true
-        });
-
-       }
         return true
       })
       .catch((err) => {
@@ -171,11 +171,20 @@ export class AuthService {
     return from(promise);
 
   }
- 
 
-   private displayFailedLogin(message: string): void {
+
+  private displayFailedLogin(message: string): void {
     const faildLoginAlert = new Alert(message, AlertType.Danger)
     this.alertService.alerts.next(faildLoginAlert);
+  }
+
+  ForgotPassword(passwordResetEmail: any) {
+    return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+      }).catch((error) => {
+        window.alert(error)
+      })
   }
 }
 

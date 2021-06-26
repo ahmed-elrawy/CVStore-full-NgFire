@@ -1,0 +1,287 @@
+@import '../../../styles/variabales.scss';
+
+.back {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    
+    z-index: -1;
+  
+    background-color: #e2e4e7;
+  
+  }
+
+  
+  
+  .section2 {
+    width: 850px;
+  }
+  
+   
+//////////profile
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:900,300);
+body {
+  background-color: #f0f0f0;
+  font-family: roboto;
+}
+.container-display{
+  
+  width: 800px;
+  // margin: 20px auto 20px;
+  // padding: 0 20px 20px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+
+ 
+}
+
+ .pdf{
+  width: 100%;
+  height: 900px;
+}
+
+
+.container-profile{
+  
+  width: 800px;
+  margin: 20px auto 20px;
+  background-color: #fff;
+  padding: 0 20px 0px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  text-align: center;
+}
+
+.avatar-flip {
+  border-radius: 100px;
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: auto;
+  top: -50px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 13px #f0f0f0;
+  -webkit-box-shadow: 0 0 0 13px #f0f0f0;
+  -moz-box-shadow: 0 0 0 13px #f0f0f0;
+}
+
+.avatar-flip img:first-child {
+  z-index: 1;
+}
+
+
+h2 {
+  position: relative;
+
+  top: -30px;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+h4 {
+  font-size: 23px;
+  color: $primary;
+  letter-spacing: 1px;
+  margin-bottom: 25px
+  }
+
+
+@media only screen and (max-width: 600px) and (min-width: 400px)  {
+    .container-profile{
+        width: 350px;
+        
+      }
+      .container-display{
+        width: 350px;
+      }
+
+       .pdf   {
+        width: 350px;
+        height: 500px;
+      }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px)  {
+  .container-profile{
+      width: 300px;
+      
+    }
+    .container-display{
+      width: 300px;
+    }
+
+     .pdf   {
+      width: 300px;
+      height: 500px;
+    }
+}
+
+
+//////////////////
+
+.dropzone { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+  height: 300px;
+  border: 2px dashed #f16624;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+
+  &.hovering {
+      border: 2px solid #f16624;
+      color: #dadada !important;
+  }
+}
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+///@extend.bg-custom-1 {
+  .bg-custom-1 {
+    background-color: #85144b;
+  }
+  
+  .bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  }
+
+
+  .image-upload>input {
+    display: none;
+  }
+
+  @media screen and (max-width: 325px) {
+    .tab {
+       flex-direction: column;
+       -o-flex-direction: column;
+       -ms-flex-direction: column;
+       -moz-flex-direction: column;
+       -webkit-flex-direction: column;
+     }
+    }
+
+
+// style input PDF
+    .js .inputfile {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+  }
+  
+  .inputfile + label {
+      max-width: 80%;
+      font-size: 1.25rem;
+      /* 20px */
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-block;
+      overflow: hidden;
+      padding: 0.625rem 1.25rem;
+      /* 10px 20px */
+  }
+  
+  .no-js .inputfile + label {
+      display: none;
+  }
+  
+  .inputfile:focus + label,
+  .inputfile.has-focus + label {
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+  }
+  
+  .inputfile + label * {
+      /* pointer-events: none; */
+      /* in case of FastClick lib use */
+  }
+  
+  .inputfile + label svg {
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+      fill: currentColor;
+      margin-top: -0.25em;
+      /* 4px */
+      margin-right: 0.25em;
+      /* 4px */
+  }
+  
+  
+
+  
+  
+  /* style 2 */
+  
+  .inputfile-2 + label {
+      color: #d3394c;
+      border: 2px solid currentColor;
+  }
+  
+  .inputfile-2:focus + label,
+  .inputfile-2.has-focus + label,
+  .inputfile-2 + label:hover {
+      color: #722040;
+  }
+  
+  
+
+
+//change image
+.container .change {
+  position: absolute;
+  top: 77%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color:#f0f0f0;
+  color: $primary;
+  font-size: 15px;
+  padding: 7px 40px 7px 5px;
+  margin: 0px 40px 10px 0px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  text-align: center;
+}
+ .material-icons{
+  font-size: 35px;
+
+ }
+
+ // changr design of user-info and pdf
+ .swich{
+   height: 35px;
+   font-size: large;
+   font-weight: 600;
+   font-family: Arial, Helvetica, sans-serif;
+  &.defulat {
+    background-color:#f0552e;
+    color: white;
+    width: 70px;
+  }
+  
+ }
+

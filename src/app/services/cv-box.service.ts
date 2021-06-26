@@ -26,7 +26,7 @@ export class CvBoxService {
   categories: Observable<any[]> | null
 
   departmentCollection!: AngularFirestoreCollection<any>;
-  departments!: Observable<any[] > 
+  departments!: Observable<any[]>
 
   usersCollections!: AngularFirestoreCollection<any>;
   users!: Observable<User[]>
@@ -36,7 +36,7 @@ export class CvBoxService {
 
   constructor(
     private db: AngularFirestore,
-   // public dialog: MatDialog,
+    // public dialog: MatDialog,
     private router: Router,
 
 
@@ -62,12 +62,13 @@ export class CvBoxService {
 
   getDepartments(event: Event | string) {
     let id: string
-    if (  event instanceof  Event ) {
+    if (event instanceof Event) {
       id = (<HTMLInputElement>event.target).value
       console.log('Event')
 
-    }else { id = event ;       console.log(id)
-  }
+    } else {
+      id = event; console.log(id)
+    }
 
     this.departmentCollection = this.db.collection('departments', ref => {
       // Compose a query using multiple .where() methods
@@ -79,7 +80,7 @@ export class CvBoxService {
 
   }
 
-  getUsers(id: number) {
+  getUsers(id: string) {
 
     this.usersCollections = this.db.collection('users', ref => {
       // Compose a query using multiple .where() methods
@@ -91,7 +92,7 @@ export class CvBoxService {
 
   }
 
-  cvFilter(category:string, departments:string, gender:string, country: string, state:string, marital:string, military:string, minExprience:number, maxExprience:number) {
+  cvFilter(category: string, departments: string, gender: string, country: string, state: string, marital: string, military: string, minExprience: number, maxExprience: number) {
 
     this.usersCollections = this.db.collection('users', ref => {
       // Compose a query using multiple .where() methods
@@ -119,7 +120,7 @@ export class CvBoxService {
 
 
 
-  public submit(filterForm: any, minExperience:number, maxExperience: number): void {
+  public submit(filterForm: any, minExperience: number, maxExperience: number): void {
 
 
     if (filterForm.valid) {
@@ -127,7 +128,7 @@ export class CvBoxService {
 
       this.cvFilter(category, departments, gender, country, state, marital_status, military_status, minExperience, maxExperience);
 
-     // this.dialog.closeAll()
+      // this.dialog.closeAll()
       this.router.navigate(['/users'])
 
     } else {
