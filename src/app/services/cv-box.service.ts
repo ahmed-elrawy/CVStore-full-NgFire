@@ -26,7 +26,7 @@ export class CvBoxService {
   categories: Observable<any[]> | null
 
   departmentCollection!: AngularFirestoreCollection<any>;
-  departments!: Observable<any[] | string>
+  departments!: Observable<any[] > 
 
   usersCollections!: AngularFirestoreCollection<any>;
   users!: Observable<User[]>
@@ -60,13 +60,13 @@ export class CvBoxService {
 
 
 
-  getDepartments(event: Event | number) {
-    let id: any
+  getDepartments(event: Event | string) {
+    let id: string
     if (  event instanceof  Event ) {
       id = (<HTMLInputElement>event.target).value
       console.log('Event')
 
-    }else { id = id ;       console.log(id)
+    }else { id = event ;       console.log(id)
   }
 
     this.departmentCollection = this.db.collection('departments', ref => {

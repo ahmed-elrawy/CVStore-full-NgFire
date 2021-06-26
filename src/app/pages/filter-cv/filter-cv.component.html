@@ -31,7 +31,7 @@
             'is-invalid':
               filterFormControl.category.touched ||
               (filterFormControl.category.dirty &&
-                filterFormControl.category.valid)
+                !filterFormControl.category.valid)
           }"
         >
           <option>--Select category--</option>
@@ -58,6 +58,12 @@
         id="departmentId"
         placeholder="department (required)"
         formControlName="departments"
+        [ngClass]="{
+          'is-invalid':
+            (filterFormControl.departments.touched ||
+              filterFormControl.departments.dirty) &&
+            !filterFormControl.departments.valid
+        }"
       >
         <option>--Select department--</option>
 
@@ -66,7 +72,175 @@
         </option>
       </select>
 
-      <span class="invalid-feedback"> </span>
+      <span class="invalid-feedback">
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.departments.errors?.required">
+            Please enter department.
+          </span>
+        </span></span
+      >
+    </div>
+
+    <!-- end of department-->
+    <!-- start of Country/Region-->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="countryId">Country/Region</label>
+        <select
+          class="form-control"
+          (change)="country.onChangeCountry($event)"
+          id="
+                        countryId"
+          placeholder="Country (required)"
+          formControlName="country"
+          [ngClass]="{
+            'is-invalid':
+              (filterFormControl.country.touched ||
+                filterFormControl.country.dirty) &&
+              !filterFormControl.country.valid
+          }"
+        >
+          <option>--Select country--</option>
+
+          <option
+            *ngFor="let country of country.countries | async"
+            [value]="country.name"
+          >
+            {{ country.name }}
+          </option>
+        </select>
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.country.errors?.required">
+            Please enter your country.
+          </span>
+        </span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="stateId">state</label>
+
+        <select
+          class="form-control"
+          id="stateId"
+          placeholder="state (required)"
+          formControlName="state"
+          [ngClass]="{
+            'is-invalid':
+              (filterFormControl.state.touched ||
+                filterFormControl.state.dirty) &&
+              !filterFormControl.state.valid
+          }"
+        >
+          <option>--Select State--</option>
+          <option
+            *ngFor="let state of country.states | async"
+            [value]="state.name"
+          >
+            {{ state.name }}
+          </option>
+        </select>
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.state.errors?.required">
+            Please enter your state.
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- end of Country/Region-->
+    <!-- start  of Marital & Military Status-->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="MaritalId">Marital Status</label>
+        <select
+          class="form-control"
+          id="MaritalId"
+          placeholder="Marital Status (required)"
+          formControlName="marital_status"
+          [ngClass]="{
+            'is-invalid':
+              (filterFormControl.marital_status.touched ||
+                filterFormControl.marital_status.dirty) &&
+              !filterFormControl.marital_status.valid
+          }"
+        >
+          <option>Unspecified</option>
+          <option>Single</option>
+          <option>Married</option>
+        </select>
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.marital_status.errors?.required">
+            Please enter your name.
+          </span>
+        </span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="MilitaryId"> Military Status</label>
+        <select
+          class="form-control"
+          id="MilitaryId"
+          placeholder="Marital Status (required)"
+          formControlName="military_status"
+          [ngClass]="{
+            'is-invalid':
+              (filterFormControl.military_status.touched ||
+                filterFormControl.military_status.dirty) &&
+              !filterFormControl.military_status.valid
+          }"
+        >
+          <option>Not Applicable</option>
+          <option>Exempted</option>
+          <option>Completed</option>
+          <option>Postponed</option>
+        </select>
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.military_status.errors?.required">
+            Please enter your name.
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- end of  Marital & Military Status-->
+    <!-- start  of  gender-->
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="genderId">Gender</label>
+        <select
+          class="form-control"
+          id="genderId"
+          placeholder="gender (required)"
+          formControlName="gender"
+          [ngClass]="{
+            'is-invalid':
+              (filterFormControl.gender.touched ||
+                filterFormControl.gender.dirty) &&
+              !filterFormControl.gender.valid
+          }"
+        >
+          <option>--Select gender--</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+
+        <span class="invalid-feedback">
+          <span *ngIf="filterFormControl.gender.errors?.required">
+            Please enter gender.
+          </span>
+        </span>
+      </div>
     </div>
   </form>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    [disabled]="!filterFormControl.valid"
+    (click)="cv.submit(filterForm, minExperience, maxExperience)"
+  >
+    search
+  </button>
+</mat-dialog-actions>

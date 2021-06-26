@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  getDepartments(id: number) {
+  getDepartments(id: string) {
     this.idTemp = id
     this.showSpinner = true
     this.department = !this.department

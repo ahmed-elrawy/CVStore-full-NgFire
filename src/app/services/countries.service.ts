@@ -37,8 +37,15 @@ export class CountriesService {
     // this.states = this.statesCollection.valueChanges()
   }
 
-  onChangeCountry(id: number) {
+  onChangeCountry(event: Event | string) {
+    let id: string ;
+    if (  event instanceof  Event ) {
+      id = (<HTMLInputElement>event.target).value
+      console.log('Event')
 
+    }else { 
+      id = event ;       
+  }
     this.statesCollection = this.db.collection('states', ref => {
       // Compose a query using multiple .where() methods
       return ref
